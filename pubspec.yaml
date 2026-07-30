@@ -35,6 +35,14 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   animated_bottom_navigation_bar: any
+  equatable: any
+  jalali_table_calendar_plus: any
+  flutter_bloc: any
+  jalali_flutter_datepicker: any
+  intl: ^0.20.3
+  flutter_screenutil: ^5.9.3
+  hive: any
+  hive_flutter: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -45,7 +53,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
-
+  build_runner: any
+  hive_generator: any
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

@@ -3,39 +3,50 @@ import 'package:flutter/material.dart';
 import 'package:pele_resume/src/featrue_note/presentation/note_screen.dart';
 import 'package:pele_resume/src/feature_alarm/presnetation/alarm_screen.dart';
 import 'package:pele_resume/src/feature_calender/presentation/calender_screen.dart';
-import 'package:pele_resume/src/feature_home_screen/presentation/home_screen.dart';
+import 'package:pele_resume/src/feature_home_screen/presentation/pages/add_screen.dart';
+import 'package:pele_resume/src/feature_home_screen/presentation/pages/home_screen.dart';
 import 'package:pele_resume/src/feature_nav_screen/constants.dart';
 
-class BottomNavigationBar extends StatefulWidget {
-  const BottomNavigationBar({super.key});
+class BottomNavigationBarWidget extends StatefulWidget {
+  const BottomNavigationBarWidget({super.key});
 
   @override
-  State<BottomNavigationBar> createState() => _BottomNavigationBarState();
+  State<BottomNavigationBarWidget> createState() => _BottomNavigationBarWidgetState();
 }
 
-class _BottomNavigationBarState extends State<BottomNavigationBar> {
+class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
+  int _currentIndex = 0;
+
+  final List<Widget> _screens = [
+    HomeScreen(),
+    const NoteScreen(),
+    const CalenderScreen(),
+    const AlarmScreen(),
+  ];
+
+  final List<IconData> _icons = [
+    Icons.home,
+    Icons.note,
+    Icons.calendar_month,
+    Icons.alarm,
+  ];
+
   @override
   Widget build(BuildContext context) {
-    int index = 0;
-    Widget body = HomeScreen();
-    Widget handleBody(){
-      if(index == 0)return HomeScreen();
-      if(index == 1) return NoteScreen();
-      if (index == 2) return CalenderScreen();
-      if (index == 3) return AlarmScreen();
-      throw Exception();
-    }
     return Scaffold(
-      body: handleBody(),
+      body: _screens[_currentIndex],
       bottomNavigationBar: AnimatedBottomNavigationBar(
-        icons: icons,
-        activeIndex: index,
+        icons: _icons,
+        activeIndex: _currentIndex,
         gapLocation: GapLocation.center,
         notchSmoothness: NotchSmoothness.verySmoothEdge,
         leftCornerRadius: 32,
         rightCornerRadius: 32,
-        onTap: (ind) => setState(() => index = ind),
-        //other params
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
     );
   }
