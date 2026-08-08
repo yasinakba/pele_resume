@@ -9,28 +9,23 @@ class ToDoModel extends ToDoEntity {
   @HiveField(1)   
   String  priority;
   @HiveField(2)
-  int id;
-  @HiveField(3)
  int createdAt;
 
   ToDoModel({
     required this.name,
     required this.priority,
-    required this.id,
     required this.createdAt,
-  }) : super(createdAt: createdAt, name: name, id: id, priority: priority);
+  }) : super(createdAt: createdAt, name: name, priority: priority);
 
   factory ToDoModel.fromJson(Map<String, dynamic> json) => ToDoModel(
     name: json['name'],
     priority: json['priority'],
-    id: json['id'],
     createdAt: json['createdAt'],
   );
 
   Map<String, dynamic> toJson()=> {
     'name':name,
     'priority':priority,
-    'id':id,
     'createdAt':createdAt
   };
 }

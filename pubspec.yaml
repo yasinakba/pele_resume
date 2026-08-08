@@ -43,6 +43,9 @@ dependencies:
   flutter_screenutil: ^5.9.3
   hive: any
   hive_flutter: any
+  get_it: any
+  emoji_picker_flutter: any
+  get: ^4.7.3
 dev_dependencies:
   flutter_test:
     sdk: flutter
